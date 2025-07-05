@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --primary: #6558f5;
+  --primary-dark: #5b21b6;
+  --accent: #8b5cf6;
+
+  /* Light Theme Colors */
+  --light-bg: #f4f4ff;
+  --light-container: #ffffff;
+  --light-text: #111827;
+  --light-input: #f1f1ff;
+  --light-border: #d4d4ed;
+
+  /* Dark Theme Colors */
+  --dark-bg: #0f172a;
+  --dark-container: #1e293b;
+  --dark-text: #f1f5f9;
+  --dark-input: #334155;
+  --dark-border: #475569;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body.light-theme {
+  background: var(--light-bg);
+  color: var(--light-text);
+}
+
+body.dark-theme {
+  background: radial-gradient(circle at top, #0f172a 0%, #0f172a 100%);
+  color: var(--dark-text);
+}
+
+.container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 32px;
+  border-radius: 20px;
+  position: relative;
+  background: var(--light-container);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme .container {
+  background: var(--dark-container);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.logo {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.theme-toggle {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: var(--light-input);
+  border: 1px solid var(--light-border);
+  color: var(--light-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+body.dark-theme .theme-toggle {
+  background: var(--dark-input);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-text);
+}
+
+.main-content {
+  margin: 30px 0;
+}
+
+.prompt-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.prompt.input {
+  width: 100%;
+  height: 80px;
+  padding: 12px;
+  border: 1px solid var(--light-border);
+  border-radius: 8px;
+  background: var(--light-input);
+  color: var(--light-text);
+  resize: none;
+}
+
+body.dark-theme .prompt.input {
+  background: var(--dark-input);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-text);
+}
+
+.prompt-btn {
+  width: 50px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.prompt-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.custom-select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--light-input);
+  border: 1px solid var(--light-border);
+  color: var(--light-text);
+}
+
+body.dark-theme .custom-select {
+  background: var(--dark-input);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-text);
+}
+
+.generate-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#image-results {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.image-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #e5e7eb;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+body.dark-theme .image-placeholder {
+  background: #334155;
+  color: #cbd5e1;
+}
+
+#image-results img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#image-results img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
