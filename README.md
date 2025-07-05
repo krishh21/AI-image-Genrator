@@ -48,4 +48,4 @@ npm install
 STABILITY_API_KEY=your_api_key_here
 
 # Run locally
-npm run dev
+npm run start
