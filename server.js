@@ -11,7 +11,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public")); 
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // ✅ use Render port
+
+// ✅ Add this test route
+app.get("/", (req, res) => {
+  res.send("✅ Your server is working on Render!");
+});
 
 app.post("/generate", async (req, res) => {
   const { prompt } = req.body;
@@ -43,7 +48,6 @@ app.post("/generate", async (req, res) => {
     console.log(data);
 
     if (data?.image) {
-      // If image is base64
       res.json({ images: [`data:image/png;base64,${data.image}`] });
     } else if (data?.images) {
       res.json({ images: data.images });
@@ -57,5 +61,5 @@ app.post("/generate", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`✅ Server running at http://localhost:${PORT}`);
 });
